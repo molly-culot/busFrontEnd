@@ -1,33 +1,21 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-} from "react-router-dom";
-import Home from "./pages";
-import SignUp from "./pages/signup";
-import LogSched from "./pages/logSched";
-import ViewSched from "./pages/viewSched";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignUp from './pages/SignUp';
+import Schedule from './pages/Schedule';
+import Login from './pages/Login';
+import './App.css';
 
 function App() {
   return (
-      <Router>
-          <Navbar />
-          <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route
-                  path="/contact"
-                  element={<Contact />}
-              />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route
-                  path="/sign-up"
-                  element={<SignUp />}
-              />
-          </Routes>
-      </Router>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/signup" component={SignUp} />
+          <Route path="/schedule" component={Schedule} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
